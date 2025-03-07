@@ -1,5 +1,5 @@
 # stats220
-
+## I am Diego
 This is my repo for STATS 220. 
 
 A little about me:

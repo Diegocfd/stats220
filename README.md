@@ -2,7 +2,7 @@
 ## Welcome to My Stats220 Repository!
 This is my repo for STATS 220. 
 
-###A little about **me**:
+### A little about **me**:
 
 - I am undertaking a degree in bachelor
 - I am taking STATS 220 because I want to study statistics

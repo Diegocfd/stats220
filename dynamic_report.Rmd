@@ -1,0 +1,70 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body{
+background-color: #d3efef;
+}
+```
+
+## Public Fashion Trends: Footwear, Branding, and Colors
+
+There are three different question about the people's dressing habits. They are "how many of shoes a person have?", "how many of your cloth has visible brand?" and "what color is your most of the cloth?". After collect over 20 people's data, I start to analyse the relationship between those different data. And I have create two summary values down blow which shows the maximum and minimum of amount of shoes a person have and two two bar charts.
+
+```{r} 
+# Load the tidyverse package
+library(tidyverse)
+
+#read data from the published csv file url into a data frame
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR-bgrw4uy2apdBxggNvSYPYtviMUNOq7tI9ga5MOL79W_2eIyeiUC6VQ4i8FcTHW1mwYEo-sZAJPQ-/pub?output=csv")
+
+# rename the variable and creating a new data frame named latest_data
+latest_data <- logged_data %>%
+  rename(time = 1,
+         shoes_count = 2,
+         brand_persentage = 3,
+         color = 4)
+
+# using the max() function to find the maximum shoes count for a person in the data
+paste("The maximum number of pairs of shoes a person has in the data is",
+      max(latest_data$shoes_count),
+      ".",
+      collapse = " ")
+
+# using the min() function to find the minimum shoes count for a person in the data
+paste("The minimum number of pairs of shoes a person has in the data is",
+      min(latest_data$shoes_count),
+      ".",
+      collapse = " ")
+
+# Bar chart 1
+latest_data %>%
+  ggplot() + 
+    geom_bar(aes(x = shoes_count, fill = brand_persentage)) + 
+  labs(title = "More shoes, More brand cloths?",
+       subtitle = "Comparing the the shoes amount of a person with their brand cloths amount",
+       caption = "Source: Student survey",
+       x = "Number of shoes for each person",
+       y = "The amount of brand cloths the person has")
+
+# Bar chart 2
+latest_data %>%
+  ggplot() + 
+  geom_bar(aes(x = brand_persentage, fill = color)) + 
+  labs(title = "Does the color having any relationship between amount of brand cloths for a person?",
+       subtitle = "Comparing the the brand_persentage of a person with their cloth prefer color",
+       caption = "Source: Student survey",
+       x = "The persentage of the amount of brand cloth for each person",
+       y = "The color of most of their cloth")
+
+paste("The first summary value is maximum shoes count for a person and the second summary value is minimum shoes count for a person.")
+paste("The first bar chart is to see the relationship between the shoes amount of a person and their brand cloths amount the second bar chart is to see the relationship between the color of their cloth and the amount of brand cloths.")
+
+```

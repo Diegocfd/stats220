@@ -16,7 +16,7 @@ background-color: #d3efef;
 
 ## Public Fashion Trends: Footwear, Branding, and Colors
 
-There are three different question about the people's dressing habits. They are "how many of shoes a person have?", "how many of your cloth has visible brand?" and "what color is your most of the cloth?". After collect over 20 people's data, I start to analyse the relationship between those different data. And I have create two summary values down blow which shows the maximum and minimum of amount of shoes a person have and two two bar charts.
+There are three different question about the people's dressing habits. They are "how many of shoes a person have?", "how many of your cloth has visible brand?" and "what color is your most of the cloth?". The first question provide a numeric data which is the number of shoes, the second question provide a categorical data which is the branding percentage and the last question is also a categorical data which is the color of cloths. After collect over 20 people's data, I start to analyse the relationship between those different data. And I have create two summary values down blow which shows the maximum and minimum of the amount of shoes a person have and two bar charts The first bar chart has number of shoes for each person for x-axis and brand percentage for y-axis and the second bar chart has brand percentage for x-axis and the color of their cloth.
 
 ```{r} 
 # Load the tidyverse package
